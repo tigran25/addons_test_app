@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/scott/do_addon_connector
+  revision: 0ab89442d4e2a80b8ae70e2132f71afd6fee0aab
+  specs:
+    do_addon_connector (0.1.0)
+      rails (~> 6.1.4, >= 6.1.4.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -250,6 +257,7 @@ DEPENDENCIES
   byebug
   capybara (>= 3.26)
   devise
+  do_addon_connector!
   jbuilder (~> 2.7)
   listen (~> 3.3)
   puma (~> 5.0)

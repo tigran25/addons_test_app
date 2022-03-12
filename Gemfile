@@ -25,6 +25,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise'
 gem 'rails_admin', ['>= 3.0.0.rc3', '< 4']
 gem 'do_addon_connector', git: 'https://github.com/scott/do_addon_connector'
+gem 'pg'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

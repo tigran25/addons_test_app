@@ -3,14 +3,25 @@ FROM ruby:2.7.5
 # replace shell with bash so we can source files
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
-RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs npm ghostscript
+# node
+RUN curl -sL https://deb.nodesource.com/setup_lts.x | bash -
+
+# yarn
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+
+# install packages
+RUN apt-get update -qq && \
+  apt-get install -y --no-install-recommends \
+  build-essential \
+  libpq-dev \
+  ghostscript\
+  nodejs \
+  yarn
 
 RUN mkdir -p /app
 RUN mkdir -p /usr/local/nvm
 WORKDIR /app
-
-#RUN curl -sL https://deb.nodesource.com/setup_11.x | bash -
-RUN apt-get install -y nodejs
 
 # Copy the Gemfile as well as the Gemfile.lock and install
 # the RubyGems. This is a separate step so the dependencies
@@ -20,13 +31,12 @@ COPY Gemfile Gemfile.lock package.json yarn.lock ./
 RUN gem install bundler -v 2.1.4
 # RUN gem install foreman -v 0.85.0
 RUN bundle install --verbose --jobs 12 --retry 5
-
-RUN npm install -g yarn
-RUN yarn install --check-files
-RUN bundle exec rails db:setup 
+RUN yarn add @rails/webpacker
+RUN yarn install
 
 # Copy the main application.
 COPY . ./
+RUN bundle exec rails assets:precompile
 
 # Expose port 3000 to the Docker host, so we can access it
 # from the outside.

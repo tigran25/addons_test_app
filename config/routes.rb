@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  mount DoAddonConnector::Engine => '/connectors'
-  # devise_for :users
+  devise_for :users
+
+  authenticate :user, -> (u) { u.is_admin? } do
+    mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  end
   root to: "home#index"
+  mount DoAddonConnector::Engine => '/connectors'
+
 end

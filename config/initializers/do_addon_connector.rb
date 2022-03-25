@@ -8,22 +8,22 @@ DoAddonConnector.setup do |config|
   # App Slug
   # ======================
   # This is the slug used by your app
-  config.slug = "addons_test"
+  config.slug = ENV['MP_SLUG']
 
   # Password
   # ======================
   # This is the password assigned to your resource
-  config.password = ENV['DO_PASSWORD'] 
+  config.password = ENV['MP_PASSWORD'] 
 
   # Salt
   # ======================
   # This is the salt assigned to your resource
-  config.salt = ENV['DO_SALT']
+  config.salt = ENV['MP_SALT']
   
   # Secret
   # ======================
   # This is the client secret assigned to your resource
-  config.secret = ENV['DO_SECRET']
+  config.secret = ENV['MP_SECRET']
 
   # Token Expiration
   # ======================

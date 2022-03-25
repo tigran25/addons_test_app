@@ -5,6 +5,6 @@ Rails.application.routes.draw do
     mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   end
   root to: "home#index"
-  mount DoAddonConnector::Engine => '/connectors'
+  mount DoAddonConnector::Engine => '/marketplace'
 
 end

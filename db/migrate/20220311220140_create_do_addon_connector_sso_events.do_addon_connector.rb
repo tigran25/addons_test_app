@@ -1,7 +1,7 @@
 # This migration comes from do_addon_connector (originally 3)
 class CreateDoAddonConnectorSsoEvents < ActiveRecord::Migration[6.1]
   def change
-    create_table :do_addon_connector_sso_events, id: :uuid do |t|
+    create_table :do_addon_connector_sso_events do |t|
       t.string :resource_uuid
       t.string :resource_token
       t.integer :timestamp

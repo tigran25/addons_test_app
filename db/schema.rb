@@ -37,11 +37,25 @@ ActiveRecord::Schema.define(version: 2022_03_11_220141) do
     t.index ["owner_id"], name: "index_do_addon_connector_notifications_on_owner_id"
   end
 
-# Could not dump table "do_addon_connector_sso_events" because of following StandardError
-#   Unknown type 'uuid' for column 'id'
+  create_table "do_addon_connector_sso_events", force: :cascade do |t|
+    t.string "resource_uuid"
+    t.string "resource_token"
+    t.integer "timestamp"
+    t.string "email"
+    t.integer "owner_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_do_addon_connector_sso_events_on_email"
+  end
 
-# Could not dump table "do_addon_connector_tokens" because of following StandardError
-#   Unknown type 'uuid' for column 'id'
+  create_table "do_addon_connector_tokens", force: :cascade do |t|
+    t.integer "owner_id"
+    t.string "kind"
+    t.string "token"
+    t.datetime "expires_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false

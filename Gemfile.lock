@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/scott/do_addon_connector
-  revision: 0ab89442d4e2a80b8ae70e2132f71afd6fee0aab
+  revision: 04c672f9ccf66c5881e9bf9c89a70d7a0cdba855
   specs:
     do_addon_connector (0.1.0)
       rails (~> 6.1.4, >= 6.1.4.1)
@@ -121,7 +121,7 @@ GEM
     listen (3.7.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
-    loofah (2.15.0)
+    loofah (2.16.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.1)

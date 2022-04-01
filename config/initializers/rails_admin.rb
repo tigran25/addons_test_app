@@ -5,7 +5,10 @@ RailsAdmin.config do |config|
 
   ## == Devise ==
   config.authenticate_with do
-    warden.authenticate! scope: :user
+    authenticate_or_request_with_http_basic('Login required') do |username, password|
+      username == ENV['SITE_USER'] &&
+      password == ENV['SITE_PASSWORD']
+    end
   end
   config.current_user_method(&:current_user)
 
@@ -30,11 +33,11 @@ RailsAdmin.config do |config|
     index                         # mandatory
     # new
     # export
-    # bulk_delete
+    bulk_delete
     show
     # edit
-    # delete
-    # show_in_app
+    delete
+    show_in_app
 
     ## With an audit adapter, you can add:
     # history_index

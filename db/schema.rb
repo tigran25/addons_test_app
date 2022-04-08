@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_11_220141) do
+ActiveRecord::Schema.define(version: 2022_04_01_234244) do
 
   create_table "do_addon_connector_customers", force: :cascade do |t|
     t.integer "owner_id"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2022_03_11_220141) do
     t.string "creator_uuid"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "creator_id"
     t.index ["key"], name: "index_do_addon_connector_customers_on_key"
   end
 

@@ -29,9 +29,6 @@ module CustomerExtensions
   # 
   def setup_user
     @u = User.find(owner_id)
-    set_plan
-    @u.first_name = metadata['first_name']
-    @u.last_name = metadata['last_name']
     @u.save!
   end
 

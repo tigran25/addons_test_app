@@ -1,5 +1,6 @@
 unless Rails.env.production?
   # These are used by the connector
+  ENV['MP_SLUG'] = 'slug'
   ENV['MP_PASSWORD'] = 'password'
   ENV['MP_SALT'] = 'salt'
   ENV['MP_SECRET'] = 'secret'

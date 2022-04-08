@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/scott/do_addon_connector
-  revision: 04c672f9ccf66c5881e9bf9c89a70d7a0cdba855
+  revision: 7185498dd21a8eac32099a4d7c84e103171065ab
   specs:
     do_addon_connector (0.1.0)
       rails (~> 6.1.4, >= 6.1.4.1)

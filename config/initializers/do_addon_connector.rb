@@ -39,6 +39,11 @@ DoAddonConnector.setup do |config|
   # ======================
   # This determines where the user should be taken after a successful SSO
   config.redirect_to = '/admin'
+
+  # Debug
+  # ======================
+  # Logs additional information and stores SSO tokens for later inspection
+  config.debug = true  
 end
 
 

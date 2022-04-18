@@ -9,7 +9,12 @@ class Config < ApplicationRecord
   end
 
   after_destroy do
-    DoAddonConnector::Customer.update_config(vars)
+    vars = {}
+    customer = DoAddonConnector::Customer.find_by(key: self.resource_uuid)
+    vars.store(self.name, self.value)
+
+    # send it to the service
+    customer.update_config(vars)
   end
 
 end

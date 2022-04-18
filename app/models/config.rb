@@ -1,7 +1,7 @@
 class Config < ApplicationRecord
   after_save do
     vars = {}
-    customer = DoAddonConnector::Customer.find_by(resource_uuid: self.resource_uuid)
+    customer = DoAddonConnector::Customer.find_by(key: self.resource_uuid)
     vars.store(self.name, self.value)
 
     # send it to the service

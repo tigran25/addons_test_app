@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_01_234244) do
+ActiveRecord::Schema.define(version: 2022_04_18_165640) do
+
+  create_table "configs", force: :cascade do |t|
+    t.string "resource_uuid"
+    t.string "name"
+    t.string "value"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "do_addon_connector_customers", force: :cascade do |t|
     t.integer "owner_id"

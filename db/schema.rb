@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_18_165640) do
+ActiveRecord::Schema.define(version: 2022_04_18_190304) do
 
   create_table "configs", force: :cascade do |t|
     t.string "resource_uuid"
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 2022_04_18_165640) do
     t.integer "owner_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "user_id"
     t.index ["email"], name: "index_do_addon_connector_sso_events_on_email"
   end
 

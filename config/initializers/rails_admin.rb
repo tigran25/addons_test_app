@@ -4,13 +4,12 @@ RailsAdmin.config do |config|
   ### Popular gems integration
 
   ## == Devise ==
+  ## == Devise ==
   config.authenticate_with do
-    authenticate_or_request_with_http_basic('Login required') do |username, password|
-      username == ENV['SITE_USER'] &&
-      password == ENV['SITE_PASSWORD']
-    end
+    warden.authenticate! scope: :user
   end
   config.current_user_method(&:current_user)
+
 
   ## == CancanCan ==
   # config.authorize_with :cancancan

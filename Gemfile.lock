@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/scott/do_addon_connector
-  revision: 480eff1b06f1abca2d76c4504034619c28836a90
+  revision: 61090772fd761bae7b6e8b359cc8abe8861e49ff
   specs:
     do_addon_connector (0.1.0)
       http
